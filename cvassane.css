@@ -1,0 +1,196 @@
+/* ====== Style global ====== */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #241717;
+  color: #333;
+  text-align: center;
+}
+
+.cv-container {
+  width: 90%;
+  max-width: 900px;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+/* ====== Section Informations Personnelles ====== */
+@keyframes bgAnimation {
+  0% { background: linear-gradient(135deg, #2196F3, #21CBF3); }
+  25% { background: linear-gradient(135deg, #ff5722, #ff9800); }
+  50% { background: linear-gradient(135deg, #4CAF50, #8BC34A); }
+  75% { background: linear-gradient(135deg, #9C27B0, #E91E63); }
+  100% { background: linear-gradient(135deg, #2196F3, #21CBF3); }
+}
+
+.perso {
+  color: white;
+  padding: 50px 20px;
+  margin: 0 auto; 
+  max-width: 900px;
+  animation: bgAnimation 15s linear infinite;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+
+.perso-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid white;
+  overflow: hidden;
+  animation: rotateImage 5s linear infinite alternate;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.infos {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 250px;
+}
+
+.infos h2 {
+  margin: 0 0 10px 0;
+  align-self: center;
+  font-size: 24px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  display: inline-block;
+  transition: all 0.3s ease;
+  color: #333;
+  background-color: rgba(255,255,255,0.9);
+}
+
+.infos p {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  animation: rotateIcon 5s linear infinite;
+}
+
+@keyframes rotateImage {
+  0% { transform: rotate(-15deg); }
+  100% { transform: rotate(15deg); }
+}
+
+@keyframes rotateIcon {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ====== Sections collées centrées ====== */
+.section {
+  width: 100%;
+  max-width: 900px; 
+  margin: 0 auto;
+  padding: 40px 20px;
+  cursor: default;
+  border-top: 1px solid #ccc; 
+  color: #333;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+
+.section p {
+  text-align: left;
+  margin: 5px 0;
+  color: #333;
+}
+
+.section h2 {
+  font-size: 24px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  display: inline-block;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.section h2:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #ff5722;
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  background: #222;
+  color: white;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+footer span.icon {
+  display: inline-block;
+  animation: rotateIcon 5s linear infinite;
+  margin: 0 5px;
+}
+
+/* ====== Responsive ====== */
+@media screen and (max-width: 768px) {
+  .perso-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .photo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .section {
+    padding: 30px 15px;
+  }
+
+  .section h2 {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .photo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .section h2 {
+    font-size: 18px;
+  }
+
+  .section p {
+    font-size: 14px;
+  }
+}
