@@ -1,0 +1,153 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Mode clair et sombre */
+body.badji-light { background: #f5f5f5; color: #222; }
+body.badji-dark { background: #1a1a1a; color: #f5f5f5; }
+
+/* Bloc principal */
+.badji-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  border-radius: 15px;
+  overflow: hidden;
+  background: inherit;
+  box-shadow: 0 0 15px rgba(0,0,0,0.25);
+  animation: badji-fadein 1s ease-in-out;
+}
+
+/* Animation fade-in */
+@keyframes badji-fadein {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+.badji-header {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  border-bottom: 2px solid;
+  flex-wrap: wrap;
+  animation: badji-slide 1s ease forwards;
+}
+@keyframes badji-slide {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+body.badji-light .badji-header {
+  background: linear-gradient(135deg, #e0f7ff, #ffffff);
+  border-color: #00aaff;
+}
+body.badji-dark .badji-header {
+  background: linear-gradient(135deg, #222, #333);
+  border-color: #00aaff;
+}
+
+/* Photo */
+.badji-header-left {
+  flex: 0 0 150px;
+  text-align: center;
+  margin-right: 2rem;
+}
+.badji-header-left img.badji-profil {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #00aaff;
+animation: effetImage 3s ease-in-out infinite; /* animation de l'image */
+}
+@keyframes effetImage {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+
+/* Texte à droite */
+.badji-header-right { flex: 1; }
+.badji-header-right h1 { font-size: 1.8rem; font-weight: bold; margin-bottom: 0.5rem; }
+.badji-header-right h2 { font-size: 1.2rem; color: #00aaff; margin-bottom: 1rem; }
+
+/* Liste d'infos avec icônes */
+.badji-header-right ul {
+  list-style: none;
+  padding-left: 0;
+}
+.badji-header-right li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+}
+.badji-header-right li::before {
+  margin-right: 8px;
+}
+
+/* Contenu principal */
+#badji-content { padding: 2rem; }
+
+/* Sections */
+.badji-section { margin-bottom: 2.5rem; text-align: center; }
+.badji-section-title {
+  display: inline-block;
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 12px 20px;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  border: 2px solid #00aaff;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  cursor: default;
+  text-align: center;
+}
+.badji-section-title:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  border-color: #0088cc;
+  background: rgba(0,170,255,0.1);
+}
+
+/* Listes */
+.badji-section ul { list-style: none; padding-left: 0; text-align: left; }
+.badji-section li { margin-bottom: 0.5rem; }
+
+/* Mode clair/sombre pour sections */
+body.badji-light .badji-section-title { background: #f0f8ff; color: #222; }
+body.badji-dark .badji-section-title { background: #222; color: #f5f5f5; }
+
+/* Footer */
+.badji-footer { text-align: center; padding: 1rem; border-top: 2px solid #00aaff; font-size: 0.9rem; margin-top: 1rem; }
+
+/* Bouton thème */
+.badji-theme-btn {
+  position: fixed; top: 15px; right: 15px;
+  padding: 8px 12px;
+  border: none; background: #00aaff;
+  color: white; font-size: 1.2rem; border-radius: 20px;
+  cursor: pointer; transition: background 0.3s; z-index: 100;
+}
+.badji-theme-btn:hover { background: #0088cc; }
+
+/* Bulle suggestion */
+.badji-suggestion {
+  position: fixed; top: 60px; right: 15px;
+  background: #333; color: #fff; padding: 6px 12px;
+  border-radius: 10px; font-size: 0.85rem;
+  opacity: 0; transform: translateY(-10px); transition: all 0.5s ease;
+}
+.badji-suggestion.show { opacity: 1; transform: translateY(0); }
+
+/* Responsive */
+@media(max-width:700px){
+  .badji-header { flex-direction: column; text-align: center; }
+  .badji-header-left { margin-right: 0; margin-bottom: 1rem; }
+  .badji-header-right li { justify-content: center; }
+}
